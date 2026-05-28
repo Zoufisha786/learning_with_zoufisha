@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Zoufisha Fatma | Portfolio</title>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Segoe UI',sans-serif;
+  background:#07111f;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#38bdf8;
+  border-radius:20px;
+}
+
+/* CONTAINER */
+
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* BACKGROUND GLOW */
+
+body::before{
+  content:"";
+  position:fixed;
+  width:450px;
+  height:450px;
+  background:#38bdf8;
+  filter:blur(180px);
+  opacity:0.12;
+  top:-120px;
+  left:-120px;
+  z-index:-1;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  width:450px;
+  height:450px;
+  background:#8b5cf6;
+  filter:blur(180px);
+  opacity:0.12;
+  bottom:-150px;
+  right:-150px;
+  z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  left:0;
+  z-index:1000;
+  padding:18px 0;
+  background:rgba(7,17,31,0.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.nav-content{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:1.5rem;
+  font-weight:bold;
+  color:#38bdf8;
+  letter-spacing:1px;
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+}
+
+.nav-links a{
+  color:#dbeafe;
+  transition:0.3s;
+  position:relative;
+}
+
+.nav-links a:hover{
+  color:#38bdf8;
+}
+
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  width:0%;
+  height:2px;
+  left:0;
+  bottom:-5px;
+  background:#38bdf8;
+  transition:0.3s;
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+/* MOBILE MENU */
+
+.menu-btn{
+  display:none;
+  font-size:1.5rem;
+  cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding-top:100px;
+}
+
+.hero-content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.hero-text h1{
+  font-size:4rem;
+  line-height:1.1;
+  margin-bottom:20px;
+}
+
+.hero-text span{
+  color:#38bdf8;
+}
+
+.hero-text p{
+  color:#cbd5e1;
+  line-height:1.9;
+  margin-bottom:30px;
+  font-size:1.1rem;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 28px;
+  border-radius:50px;
+  background:linear-gradient(45deg,#38bdf8,#8b5cf6);
+  color:white;
+  font-weight:bold;
+  transition:0.3s;
+  box-shadow:0 10px 30px rgba(56,189,248,0.3);
+}
+
+.btn:hover{
+  transform:translateY(-4px) scale(1.03);
+}
+
+.hero-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:25px;
+  padding:40px;
+  backdrop-filter:blur(12px);
+  transition:0.4s;
+}
+
+.hero-card:hover{
+  transform:translateY(-8px);
+}
+
+.hero-card h3{
+  color:#38bdf8;
+  margin-bottom:20px;
+  font-size:1.5rem;
+}
+
+.hero-card p{
+  color:#cbd5e1;
+  line-height:1.8;
+}
+
+/* SECTION */
+
+section{
+  padding:100px 0;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.section-title h2{
+  font-size:2.7rem;
+  margin-bottom:12px;
+}
+
+.section-title p{
+  color:#94a3b8;
+}
+
+/* PROFILE IMAGE */
+
+.profile-section{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.profile-circle{
+  width:340px;
+  height:340px;
+  border-radius:50%;
+  padding:8px;
+  background:linear-gradient(45deg,#38bdf8,#8b5cf6);
+  box-shadow:0 20px 50px rgba(56,189,248,0.25);
+  animation:float 4s ease-in-out infinite;
+}
+
+.profile-circle img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  border:6px solid #07111f;
+}
+
+.linkedin-message{
+  padding-top:20px;
+}
+
+.message-box{
+  background:linear-gradient(
+    145deg,
+    rgba(17,24,39,0.95),
+    rgba(30,41,59,0.95)
+  );
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  border-radius:30px;
+
+  padding:60px 40px;
+
+  text-align:center;
+
+  backdrop-filter:blur(12px);
+
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+
+.message-box h2{
+  font-size:2.2rem;
+  margin-bottom:20px;
+  color:#38bdf8;
+}
+
+.message-box p{
+  color:#cbd5e1;
+  max-width:700px;
+  margin:auto;
+  line-height:1.9;
+  font-size:1.05rem;
+}
+
+.message-box .btn{
+  margin-top:30px;
+}
+
+.ending-line{
+  margin-top:35px;
+  color:#94a3b8;
+  font-style:italic;
+  font-size:1rem;
+}
+
+/* FLOATING EFFECT */
+
+@keyframes float{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-12px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+
+/* SKILLS */
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+}
+
+.skill-card{
+  background:#111827;
+  padding:30px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,0.08);
+  transition:0.4s;
+}
+
+.skill-card:hover{
+  transform:translateY(-10px);
+  border-color:#38bdf8;
+}
+
+.skill-card i{
+  font-size:2rem;
+  color:#38bdf8;
+  margin-bottom:20px;
+}
+
+.skill-card h3{
+  margin-bottom:15px;
+}
+
+.skill-card p{
+  color:#cbd5e1;
+  line-height:1.8;
+}
+
+/* PROJECTS */
+
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+}
+
+.project-card{
+  background:#111827;
+  border-radius:25px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  transition:0.4s;
+}
+
+.project-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+.project-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  transition:0.4s;
+}
+
+.project-card:hover img{
+  transform:scale(1.05);
+}
+
+.project-content{
+  padding:25px;
+}
+
+.project-content h3{
+  color:#38bdf8;
+  margin-bottom:15px;
+}
+
+.project-content p{
+  color:#cbd5e1;
+  line-height:1.8;
+}
+
+.project-content .btn{
+  margin-top:20px;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:40px 20px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  color:#94a3b8;
+}
+
+/* ANIMATION */
+
+.hidden{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1s ease;
+}
+
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+  .hero-content{
+    grid-template-columns:1fr;
+  }
+
+  .hero-text{
+    text-align:center;
+  }
+
+  .hero-text h1{
+    font-size:3rem;
+  }
+
+  .hero-card{
+    text-align:center;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:80px;
+    right:-100%;
+    flex-direction:column;
+    background:#0f172a;
+    width:250px;
+    padding:30px;
+    border-radius:20px;
+    transition:0.4s;
+  }
+
+  .nav-links.active{
+    right:20px;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .profile-circle{
+    width:260px;
+    height:260px;
+  }
+    .message-box{
+    padding:40px 25px;
+  }
+
+  .message-box h2{
+    font-size:1.8rem;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .hero-text h1{
+    font-size:2.4rem;
+  }
+
+  .section-title h2{
+    font-size:2rem;
+  }
+
+  .btn{
+    width:100%;
+    text-align:center;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+  <div class="container nav-content">
+
+    <div class="logo">
+      ZOUFISHA
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#worksamples">Work Samples</a>
+      <a href="#linkedin">LinkedIn</a>
+    </div>
+
+    <div class="menu-btn" id="menuBtn">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+  </div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero hidden" id="about">
+
+  <div class="container hero-content">
+
+    <div class="hero-text">
+
+      <h1>
+        Hi, I'm <span>Zoufisha</span>
+      </h1>
+
+      <p>
+      I design learning experiences that stay with people.
+
+      From transforming complex ideas into engaging digital journeys to blending creativity with strategy, I believe learning should feel meaningful, interactive, and human.
+
+      Welcome to my creative space ✨
+      </p>
+
+      <a href="mailto:rm975201@gmail.com" class="btn">
+        Connect With Me
+      </a>
+
+    </div>
+
+    <div class="profile-section">
+
+      <div class="profile-circle">
+
+        <img 
+          src="Sample Works/ZoufishaPic.png"
+          alt="Zoufisha Fatma"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+    <!-- <div class="hero-card">
+
+      <h3>Who Am I?</h3>
+
+      <p>
+        I blend creativity, storytelling, learner psychology,
+        instructional strategy, and technology to build
+        modern digital learning experiences for global audiences.
+      </p>
+
+    </div> -->
+
+  </div>
+  
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills" class="hidden">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>My Skills</h2>
+      <p>Things I love building and working on</p>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <i class="fa-solid fa-book-open"></i>
+        <h3>Instructional Design</h3>
+        <p>
+          ADDIE, Bloom’s Taxonomy, Gagne’s 9 Events,
+          Experience Design, SMART Learning Objectives.
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>E-Learning Tools</h3>
+        <p>
+          MS-Suite, Storyline, Rise 360, Canva, 
+          and LMS Publishing.
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <i class="fa-solid fa-lightbulb"></i>
+        <h3>Research & Analysis</h3>
+        <p>
+          Training Need Analysis, SME Coordination,
+          Content Research, and Structuring.
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <i class="fa-solid fa-code"></i>
+        <h3>Technical Skills</h3>
+        <p>
+          Storybording, Scripting, Curriculum Design, Storytelling, 
+          and Project Planning and Management.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects" class="hidden">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Projects I've Worked On</h2>
+      <p>Some impactful learning experiences and collaborations</p>
+    </div>
+
+    <div class="projects">
+
+      <!-- PROJECT 1 -->
+
+      <div class="project-card">
+
+        <img 
+          src="Sample Works/Coursera_logo_(2020).svg.png" width="200" height="100" 
+          alt="Coursera Project"
+        >
+
+        <div class="project-content">
+
+          <h3>Coursera Technical Programs</h3>
+
+          <p>
+            Worked on designing and structuring technical learning
+            experiences focused on learner engagement, assessments,
+            and modern digital learning approaches.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECT 2 -->
+
+      <div class="project-card">
+
+        <img 
+          src="Sample Works/Tata_Consultancy_Services_old_logo.svg.png" 
+          alt="Corporate Training"
+        >
+
+        <div class="project-content">
+
+          <h3>Corporate Training Solutions</h3>
+
+          <p>
+            Developed and curated corporate training solutions for new joiners,     focusing on employee skill development, onboarding experiences, and knowledge enhancement.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- PROJECT 3 -->
+
+      <div class="project-card">
+
+        <img 
+          src="Sample Works/Skillsoft-logo-navy-RGB_.png" 
+          alt="Interactive E-learning"
+        >
+
+        <div class="project-content">
+
+          <h3>Interactive E-Learning Courses</h3>
+
+          <p>
+           Developed engaging technical e-learning courses focused on future-ready skills through interactive learning experiences, scenario-based approaches, and practical real-world problem solving.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- WORK SAMPLES -->
+
+<section id="worksamples" class="hidden">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Work Samples</h2>
+      <p>Projects and learning experiences I designed</p>
+    </div>
+
+    <div class="projects">
+
+      <div class="project-card">
+
+        <img src="Sample Works/WorkSample 1.png" alt="Work Sample">
+
+        <div class="project-content">
+          <h3>Interview Preparation Microlearning Course</h3>
+
+          <p>
+            Interactive e-learning course for fresh graduates
+            with scenarios, branching, and engaging activities.
+          </p>
+
+          <a href="https://share.articulate.com/qRjxJeIToqCQwwFIrAoT9#/" class="btn">
+            View Project
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <img src="Sample Works/WorkSample 2.png" alt="Work Sample">
+
+        <div class="project-content">
+
+          <h3>PowerPoint-based Storyboard</h3>
+
+          <p>
+            Designed a storyboard on Asset-Centric Modelling for CCSP training, focused on identifying critical assets and analyzing associated security risks.
+          </p>
+
+          <a href="https://drive.google.com/drive/folders/1oJ9XOD3fkpPOJ3OduwEbpWIH9JM28i_7?usp=drive_link" class="btn">
+            View Project
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <img src="Sample Works/WorkSample 3.png" alt="Work Sample">
+
+        <div class="project-content">
+
+          <h3>Scenario-Based Learning</h3>
+
+          <p>
+          Created a storyboard on incident response documentation, emphasizing reporting practices and legal compliance.
+          </p>
+
+          <a href="https://drive.google.com/drive/folders/1oJ9XOD3fkpPOJ3OduwEbpWIH9JM28i_7?usp=drive_link" class="btn">
+            View Project
+          </a>
+
+        </div>
+
+      </div>
+      
+      <!-- <div class="project-card">
+
+        <img src="Sample Works/WorkSample 4.png" alt="Work Sample">
+
+        <div class="project-content">
+
+          <h3>UI/UX Learning Experience</h3>
+
+          <p>
+            Modern learner-first interface designed
+            for better engagement and accessibility.
+          </p>
+
+          <a href="#" class="btn">
+            View Project
+          </a>
+
+        </div>
+
+      </div> -->
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- LINKEDIN -->
+
+<section id="linkedin" class="hidden">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Featured LinkedIn Posts</h2>
+      <p>Thoughts and insights shared with professionals</p>
+    </div>
+
+    <div class="projects">
+
+      <div class="project-card">
+
+        <img src="Sample Works/LinkedIn Post - Andragogy + Pedagogy.jpg" alt="LinkedIn Post">
+
+        <div class="project-content">
+
+          <h3>How Andragogy and Pedagogy are Different from Each Other?</h3>
+
+          <p>
+            Designed an engaging learning post explaining the difference between    pedagogy and andragogy through relatable examples and visual storytelling.
+          </p>
+
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7437864852481720321/" class="btn">
+            View Post
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <img src="Sample Works/LinkedIn Post - ABCD Model.jpg" alt="LinkedIn Post">
+
+        <div class="project-content">
+
+          <h3>ABCD Model for Writing Effective Learning Objectives</h3>
+
+          <p>
+        Curated an interactive educational post breaking down the ABCD model into simple and practical concepts for creating effective learner-centered objectives.
+          </p>
+
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7424010807333810176/" class="btn">
+            View Post
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <img src="Sample Works/LinkedIn Post - LXD vs. ID.jpg" alt="LinkedIn Post">
+
+        <div class="project-content">
+
+          <h3>ID vs. LXD</h3>
+
+          <p>
+            Created a relatable visual post explaining the difference between Instructional Design and Learning Experience Design through real-world analogies and audience-centered storytelling.
+          </p>
+
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7399680157826977793/" class="btn">
+            View Post
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- LINKEDIN MESSAGE -->
+
+<section class="linkedin-message hidden">
+
+  <div class="container">
+
+    <div class="message-box">
+
+      <h2>
+        Want to read more impactful posts?
+      </h2>
+
+      <p>
+        Check out my LinkedIn profile, where I share thoughts,
+        experiences, learning moments, and ideas around
+        instructional design, creativity, and digital learning.
+      </p>
+
+      <a 
+        href="https://www.linkedin.com/in/zoufisha-fatma-950981202/"
+        target="_blank"
+        class="btn"
+      >
+        Visit My LinkedIn
+      </a>
+
+      <div class="ending-line">
+        As we grow by sharing, that's all for now... byee ✨
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <p>
+    Designed with passion by Zoufisha Fatma ✨
+  </p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* MOBILE MENU */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+/* SCROLL ANIMATION */
+
+const hiddenElements = document.querySelectorAll(".hidden");
+
+const observer = new IntersectionObserver((entries) => {
+
+  entries.forEach((entry) => {
+
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+
+  });
+
+});
+
+hiddenElements.forEach((el) => observer.observe(el));
+
+</script>
+
+</body>
+</html>
